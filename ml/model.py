@@ -20,8 +20,9 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
     # TODO: implement the function
-    pass
-
+    model = LogisticRegression()
+    model.fit(X_train, y_train)
+    return model
 
 def compute_model_metrics(y, preds):
     """
@@ -60,7 +61,8 @@ def inference(model, X):
         Predictions from the model.
     """
     # TODO: implement the function
-    pass
+    preds = model.predict(X)
+    return preds
 
 def save_model(model, path):
     """ Serializes model to a file.
@@ -73,12 +75,14 @@ def save_model(model, path):
         Path to save pickle file.
     """
     # TODO: implement the function
-    pass
+    with open(path, 'wb') as file
+        pickle.dump(model, file)
 
 def load_model(path):
     """ Loads pickle file from `path` and returns it."""
     # TODO: implement the function
-    pass
+    with open(path, 'rb') as file:
+        return pickle.load(file)
 
 
 def performance_on_categorical_slice(
@@ -118,6 +122,8 @@ def performance_on_categorical_slice(
 
     """
     # TODO: implement the function
+    data_slice = data[data[column_name] == slice_value]
+    
     X_slice, y_slice, _, _ = process_data(
         # your code here
         # for input data, use data in column given as "column_name", with the slice_value 
