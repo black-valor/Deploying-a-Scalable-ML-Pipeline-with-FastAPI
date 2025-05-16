@@ -2,6 +2,7 @@ import pickle
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from ml.data import process_data
 # TODO: add necessary import
+from sklearn.linear_model import LogisticRegression
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
@@ -75,7 +76,7 @@ def save_model(model, path):
         Path to save pickle file.
     """
     # TODO: implement the function
-    with open(path, 'wb') as file
+    with open(path, 'wb') as file:
         pickle.dump(model, file)
 
 def load_model(path):
